@@ -9,6 +9,22 @@ import org.testng.annotations.Test;
 
 
 public class user_employee extends login {
+    WebDriver driver;
+
+@BeforeClass
+public void loginIfNeeded() throws InterruptedException {
+    login loginInstance = login.getInstance();
+    if (!loginInstance.isLoggedIn()) {
+        loginInstance.login();
+    }
+}
+
+//    login login = login.getInstance();
+//
+//    // Call login only once
+//        if (!login.isloggedIn()) {
+//        login.login();
+//    }
 
     @Test(groups = {"user_employer_click"}, priority = 3)
     void click_user_employee() throws InterruptedException {
