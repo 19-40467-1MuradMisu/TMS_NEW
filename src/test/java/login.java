@@ -26,7 +26,7 @@ import org.testng.annotations.Test;
 //}
 public class login extends base {
     private static login instance;
-    boolean isloggedIn;
+   private boolean isloggedIn;
 
     protected login() {
         // Private constructor to prevent instantiation from outside
