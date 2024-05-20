@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 
 public class base{
-    WebDriver driver;
+  protected WebDriver driver;
     @BeforeClass
     public void chrome_handle() {
         driver = new ChromeDriver();
@@ -21,8 +21,12 @@ public class base{
 
     @AfterClass
     public void windowhandle() throws InterruptedException {
-        Thread.sleep(10000);
-        driver.quit();
+      //
+        if(driver !=null) {
+            Thread.sleep(10000);
+            driver.quit();
+
+        }
     }
 }
 
