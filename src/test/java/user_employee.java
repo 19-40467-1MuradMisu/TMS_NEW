@@ -106,24 +106,14 @@ public void loginIfNeeded() throws InterruptedException {
     @Test(groups = {"Employee_File_Upload"}, priority = 9)
     void Employee_File_Upload() throws InterruptedException {
         Thread.sleep(2000);
-//         driver.findElement(By.cssSelector(".ant-upload.ant-upload-select")).click(); // This will click on that upload button
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
       WebElement File1= wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".ant-upload.ant-upload-select")));
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();", File1);
-//
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", File1);
-//        Thread.sleep(500); // give a small delay to ensure scrolling is done
-//
-//        // Click on the element using JavaScript Executor
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", File1);
-//        Thread.sleep(2000); // Wait for the file chooser dialog to open
-//      //String filename="";
+
         driver.findElement(By.cssSelector(".ant-upload.ant-upload-select")).click(); // This will click on that upload button
         Thread.sleep(2000);
 
-//      File1.sendKeys("D://sample.xlsx");// Click on upload button and upload Excel file
-//        Thread.sleep(2000);
+
         try {
             Thread.sleep(2000);  // Adjust the sleep time as needed
         } catch (InterruptedException e) {
@@ -160,7 +150,15 @@ public void loginIfNeeded() throws InterruptedException {
             e.printStackTrace();
         }
     }
+    @Test(groups = {"Employee_ActionButton"}, priority = 10)
+    void Employee_ActionButton() throws InterruptedException {
 
+        driver.findElement(By.xpath("/html/body/div[1]/div/div/main/div[2]/div[3]/div[1]/div[2]/div")).click(); // Click on three dot button
+        Thread.sleep(2000);
+        driver.findElement(By.cssSelector("a[href='/transport/employee/update/15']")).click(); // Click on edit button
+        Thread.sleep(2000);
+
+    }
 
 }
 
