@@ -155,7 +155,7 @@ public void loginIfNeeded() throws InterruptedException {
 
         driver.findElement(By.xpath("/html/body/div[1]/div/div/main/div[2]/div[3]/div[1]/div[2]/div")).click(); // Click on three dot button
         Thread.sleep(2000);
-        driver.findElement(By.cssSelector("a[href='/transport/employee/update/15']")).click(); // Click on edit button
+        driver.findElement(By.cssSelector("a[href='/transport/employee/update/15']")).click(); // Click on edit buttons
         Thread.sleep(2000);
 
     }
