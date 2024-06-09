@@ -15,6 +15,7 @@
     </properties>
 
     <dependencies>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -67,14 +68,8 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.webjars.npm/webdriver-manager -->
-<!--        <dependency>-->
-<!--            <groupId>org.webjars.npm</groupId>-->
-<!--            <artifactId>webdriver-manager</artifactId>-->
-<!--            <version>13.0.0-beta</version>-->
-<!--        </dependency>-->
 
-<!--    </dependencies>-->
+    </dependencies>
 
 
 <!--    <build>-->
