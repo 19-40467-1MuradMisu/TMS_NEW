@@ -2,6 +2,7 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +14,7 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.Set;
 
 
 public class user_employee extends base {
@@ -152,11 +154,41 @@ public void loginIfNeeded() throws InterruptedException {
     }
     @Test(groups = {"Employee_ActionButton"}, priority = 10)
     void Employee_ActionButton() throws InterruptedException {
+//    Edit operation
 
-        driver.findElement(By.xpath("/html/body/div[1]/div/div/main/div[2]/div[3]/div[1]/div[2]/div")).click(); // Click on three dot button
+//    driver.findElement(By.cssSelector("li[title='2']")).click(); // Go to 2nd page
+        driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click(); // Click on three dot button
         Thread.sleep(2000);
-        driver.findElement(By.cssSelector("a[href='/transport/employee/update/15']")).click(); // Click on edit buttons
+        driver.findElement(By.cssSelector("a[href='/transport/employee/update/23']")).click(); // Click on edit buttons
         Thread.sleep(2000);
+        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]")).click(); // Click on the selection bar
+        Thread.sleep(2000);
+
+        WebElement designation = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]")); // Select another designation for editing
+        designation.click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//button[@type='submit']")).click(); //  Submit the edit form
+        Thread.sleep(2000);
+
+//   Delete Operation
+
+        driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[4]")).click(); // Click on three dot button
+        Thread.sleep(2000);
+        driver.findElement(By.cssSelector("li[class='ant-dropdown-menu-item'] span[class='ml-2']")).click(); // Click on delete button
+        Thread.sleep(2000);
+        // handle the popup window
+        Set<String> Handles=driver.getWindowHandles();
+        for (String Handle : Handles) {
+            String Handle1 = "Are you sure, want to delete?";
+            if(!Handle.equals(Handle1)) {
+                driver.switchTo().window(Handle);
+                System.out.println(Handle);
+                driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div/div/div/div[2]/button[1]")).click(); // Click on no button
+                //System.out.println(Handle);
+                Thread.sleep(5000);
+
+            }
+        }
 
     }
 
