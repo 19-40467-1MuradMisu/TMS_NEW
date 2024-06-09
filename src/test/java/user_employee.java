@@ -152,7 +152,45 @@ public void loginIfNeeded() throws InterruptedException {
             e.printStackTrace();
         }
     }
-    @Test(groups = {"Employee_ActionButton"}, priority = 10)
+
+    @Test(groups = {"New_Employee"}, priority = 11)
+    void  Add_new_Employee() throws InterruptedException {
+
+        driver.findElement(By.xpath("(//button[@class='ant-btn css-42nv3w ant-btn-default bg-blue-700 text-white'])[1]")).click(); // Click on Add New button
+        Thread.sleep(2000);
+
+
+        // Provide mendatory option for employee
+        driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("Habibur"); // Employee name
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//input[@id='employeeId'])[1]")).sendKeys("Habib-US-99"); // Employee ID
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//input[@id='designationId'])[1]")).click(); // Designation field click
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//input[@id='designationId'])[1]")).click(); // Designation field click
+        Thread.sleep(2000);
+        WebElement designation = driver.findElement(By.xpath("(//div[@class='ant-select-item-option-content'][normalize-space()='QA'])[1]"));
+        designation.click(); // click on the designation
+
+        driver.findElement(By.xpath("(//input[@id='phoneNumber'])[1]")).sendKeys("017987937436"); //Provide phone number
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+    @Test(groups = {"Employee_ActionButton"}, priority = 12)
     void Employee_ActionButton() throws InterruptedException {
 //    Edit operation
 
@@ -186,7 +224,7 @@ public void loginIfNeeded() throws InterruptedException {
                 driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div/div/div/div[2]/button[1]")).click(); // Click on no button
                 //System.out.println(Handle);
                 Thread.sleep(5000);
-                //hello
+
 
             }
         }
