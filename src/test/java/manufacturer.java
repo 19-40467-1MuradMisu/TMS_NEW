@@ -15,6 +15,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.Set;
+import java.util.UUID;
 
 
 public class manufacturer extends base {
@@ -49,78 +50,138 @@ public class manufacturer extends base {
     }
 
 
-    @Test(groups = {"Search_manufacture_byName"}, priority = 14)
-    void Search_manufacture_byName() throws InterruptedException {
+    @Test(groups = {"New_Manufacturer"}, priority = 14)
+    void New_Manufacturer() throws InterruptedException {
 
-
-        driver.findElement(By.xpath("/html/body/div/div/div/main/div[2]/div[3]/form/div/div[1]/div/div/div/div/div/input")).sendKeys("\n" + "TATA"); // Search by name
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("div[class='ant-space css-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small'] div:nth-child(1)")).click(); // click filter Button
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("button[class='ant-btn css-42nv3w ant-btn-default ant-btn-dangerous']")).click(); // reset button
-        Thread.sleep(2000);
-    }
-
-    @Test(groups = {"Search_manufacture_byName_Enterkey"}, priority = 15)
-    void Search_manufacture_byName_Enterkey() throws InterruptedException {
-
-        driver.findElement(By.xpath("/html/body/div/div/div/main/div[2]/div[3]/form/div/div[1]/div/div/div/div/div/input")).sendKeys("\n" +
-                "TATA"); // Search by name
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("div[class='ant-space css-42nv3w ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small'] div:nth-child(1)")).sendKeys(Keys.ENTER); // Clicking the enter key
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("button[class='ant-btn css-42nv3w ant-btn-default ant-btn-dangerous']")).click(); // reset button
-        Thread.sleep(2000);
-    }
-
-
-
-
-
-
-
-
-    @Test(groups = {"Employee_ActionButton"}, priority = 10)
-    void Employee_ActionButton() throws InterruptedException {
-//    Edit operation
-
-//    driver.findElement(By.cssSelector("li[title='2']")).click(); // Go to 2nd page
-        driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click(); // Click on three dot button
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("a[href='/transport/employee/update/23']")).click(); // Click on edit buttons
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]")).click(); // Click on the selection bar
+        driver.findElement(By.xpath("(//button[@class='ant-btn css-42nv3w ant-btn-default bg-blue-700 text-white'])[1]")).click(); // Click on Add New button
         Thread.sleep(2000);
 
-        WebElement designation = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]")); // Select another designation for editing
-        designation.click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//button[@type='submit']")).click(); //  Submit the edit form
-        Thread.sleep(2000);
 
-//   Delete Operation
+        // Provide mendatory option for new manufacturer
 
-        driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[4]")).click(); // Click on three dot button
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("li[class='ant-dropdown-menu-item'] span[class='ml-2']")).click(); // Click on delete button
-        Thread.sleep(2000);
-        // handle the popup window
-        Set<String> Handles=driver.getWindowHandles();
+        Set<String> Handles = driver.getWindowHandles();
         for (String Handle : Handles) {
-            String Handle1 = "Are you sure, want to delete?";
-            if(!Handle.equals(Handle1)) {
+            String Handle1 = "Add New Manufacturer";
+            if (!Handle.equals(Handle1)) {
                 driver.switchTo().window(Handle);
                 System.out.println(Handle);
-                driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div/div/div/div[2]/button[1]")).click(); // Click on no button
-                //System.out.println(Handle);
-                Thread.sleep(5000);
-                //hello
+
+                String uuid = UUID.randomUUID().toString(); // Genearte Random text
+
+                driver.findElement(By.xpath("(//input[@id='name'])[2]")).sendKeys(uuid); //  Send values to the find
+                Thread.sleep(2000);
+                driver.findElement(By.xpath("(//button[@type='button'])[7]")).click();  // Click on reset button
+
+                driver.findElement(By.xpath("(//input[@id='name'])[2]")).sendKeys(uuid); //  Send values to the find
+                Thread.sleep(2000);
+
+                driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); //  Click on submit button
+                Thread.sleep(2000);
+
 
             }
-        }
 
+
+        }
     }
 
-}
+
+        @Test(groups = {"Search_manufacture_byName"}, priority = 16)
+        void Search_manufacture_byName () throws InterruptedException {
+
+            driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("\n" + "Honda"); // Search by name
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click(); // click filter Button
+            Thread.sleep(2000);
+            driver.findElement(By.cssSelector("button[class='ant-btn css-42nv3w ant-btn-default ant-btn-dangerous']")).click(); // reset button
+            Thread.sleep(2000);
+        }
+
+        @Test(groups = {"Search_manufacture_byName_Enterkey"}, priority = 17)
+        void Search_manufacture_byName_Enterkey () throws InterruptedException {
+
+            driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("\n" +
+                    "Honda"); // Search by name
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys(Keys.ENTER); // Clicking the enter key
+            Thread.sleep(2000);
+            driver.findElement(By.cssSelector("button[class='ant-btn css-42nv3w ant-btn-default ant-btn-dangerous']")).click(); // reset button
+            Thread.sleep(2000);
+        }
+
+
+        @Test(groups = {"Click_Active_Inactive_Tab"}, priority = 15)
+        void Click_Active_Inactive_Tab () throws InterruptedException {
+
+            driver.findElement(By.xpath("(//div[@class='ant-tabs-tab'])[1]")).click();  // Click on inactive tab
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(//td[@class='ant-table-cell'])[3]")).click();  // Click on three dot button
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click();  // Perform active from inactive
+            Thread.sleep(2000);
+
+            Set<String> Handles = driver.getWindowHandles();
+            for (String Handle : Handles) {
+                String Handle1 = "Are you sure, want to change status?";
+                if (!Handle.equals(Handle1)) {
+                    driver.switchTo().window(Handle);
+                    System.out.println(Handle);
+                    driver.findElement(By.xpath("(//button[@type='button'])[7]")).click(); // Click on Yes button
+                    Thread.sleep(2000);
+                }
+            }
+
+
+            // Switch to Active tab
+
+            driver.findElement(By.xpath("(//div[@class='ant-tabs-tab'])[1]")).click();  // Perform inactive from active
+            Thread.sleep(2000);
+
+            driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click();  // Click on three dot button
+            Thread.sleep(2000);
+
+            driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click();  // Perform active from inactive
+            Thread.sleep(2000);
+
+            // Set<String> Handles=driver.getWindowHandles();
+            for (String Handle : Handles) {
+                String Handle1 = "Archieve";
+                if (!Handle.equals(Handle1)) {
+                    driver.switchTo().window(Handle);
+                    System.out.println(Handle);
+                    driver.findElement(By.xpath("(//input[@id='name'])[2]")).sendKeys("1"); // change name
+                    Thread.sleep(2000);
+                    driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // Click on  Submit button
+                    Thread.sleep(2000);
+                }
+            }
+
+
+            // Perform archive action
+
+            driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click();  // Click on three dot button
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[2]")).click();  // Perform active from inactive
+            Thread.sleep(2000);
+
+            // Set<String> Handles=driver.getWindowHandles();
+            for (String Handle : Handles) {
+                String Handle1 = "Update Manufacturer";
+                if (!Handle.equals(Handle1)) {
+                    driver.switchTo().window(Handle);
+                    System.out.println(Handle);
+                    driver.findElement(By.xpath("(//button[@type='button'])[7]")).click(); // Archieve Confirmation
+                    Thread.sleep(2000);
+
+                }
+
+
+            }
+
+
+        }
+
+
+    }
 
 
