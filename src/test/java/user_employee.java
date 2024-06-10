@@ -174,20 +174,30 @@ public void loginIfNeeded() throws InterruptedException {
         Thread.sleep(2000);
         WebElement designation = driver.findElement(By.xpath("(//div[@class='ant-select-item-option-content'][normalize-space()='QA'])[1]"));
         designation.click(); // click on the designation
-
+        Thread.sleep(2000);
         driver.findElement(By.xpath("(//input[@id='phoneNumber'])[1]")).sendKeys("017987937436"); //Provide phone number
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//div[@class='ant-form-item-control-input-content'])[5]")).click(); //Date picker
+        Thread.sleep(2000);
+        WebElement joindate = driver.findElement(By.xpath("(//a[normalize-space()='Today'])[1]"));
+        joindate.click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//input[@id='userDto_email'])[1]")).sendKeys("Habibur@gmail.com"); // provide email
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//input[@id='userDto_username'])[1]")).sendKeys("Habib-US-99"); // Login ID
+        Thread.sleep(2000);
 
+        driver.findElement(By.xpath("(//input[@id='userDto_password'])[1]")).sendKeys("123456"); //  password
+        Thread.sleep(2000);
 
+        driver.findElement(By.xpath("(//span[@class='ant-input-suffix'])[1]")).click(); //  View password
+        Thread.sleep(2000);
 
-
+        driver.findElement(By.xpath("(//button[@type='submit'])[1]")).click(); // Click on submit button
+        Thread.sleep(2000);
 
 
     }
-
-
-
-
-
 
 
     @Test(groups = {"Employee_ActionButton"}, priority = 12)
