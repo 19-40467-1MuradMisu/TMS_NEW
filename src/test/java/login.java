@@ -18,7 +18,7 @@ public class login extends base{
 
     @Test(groups ={"Login"},priority = 2)
     void Login() throws InterruptedException {
-
+// test
         driver.findElement(By.xpath("/html/body/div/div/div/form/div[2]/div/div/div/div/input")).sendKeys("tmsadmin");
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div/div/div/form/div[4]/div/div/div/div/span/input")).sendKeys("tms1234");
