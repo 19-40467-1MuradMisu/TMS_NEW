@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class manufacturer extends base {
+public class manufacturer extends user_employee {
     // WebDriver driver;
     login loginInstance;
 
@@ -85,6 +85,74 @@ public class manufacturer extends base {
         }
     }
 
+    @Test(groups = {"Click_Active_Inactive_Tab"}, priority = 15)
+    void Click_Active_Inactive_Tab () throws InterruptedException {
+
+        driver.findElement(By.xpath("(//div[@id='rc-tabs-0-tab-inactive'])[1]")).click();  // Click on inactive tab
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//td[@class='ant-table-cell'])[3]")).click();  // Click on three dot button
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click();  // Perform active from inactive
+        Thread.sleep(2000);
+
+        Set<String> Handles = driver.getWindowHandles();
+        for (String Handle : Handles) {
+            String Handle1 = "Are you sure, want to change status?";
+            if (!Handle.equals(Handle1)) {
+                driver.switchTo().window(Handle);
+                System.out.println(Handle);
+                driver.findElement(By.xpath("(//button[@type='button'])[7]")).click(); // Click on Yes button
+                Thread.sleep(2000);
+            }
+        }
+
+
+        // Switch to Active tab
+
+        driver.findElement(By.xpath("(//div[@class='ant-tabs-tab'])[1]")).click();  // Perform inactive from active
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click();  // Click on three dot button
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click();  // Perform active from inactive
+        Thread.sleep(2000);
+
+        // Set<String> Handles=driver.getWindowHandles();
+        for (String Handle : Handles) {
+            String Handle1 = "Archieve";
+            if (!Handle.equals(Handle1)) {
+                driver.switchTo().window(Handle);
+                System.out.println(Handle);
+                driver.findElement(By.xpath("(//input[@id='name'])[2]")).sendKeys("1"); // change name
+                Thread.sleep(2000);
+                driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // Click on  Submit button
+                Thread.sleep(2000);
+            }
+        }
+
+
+        // Perform archive action
+
+        driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click();  // Click on three dot button
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[2]")).click();  // Perform active from inactive
+        Thread.sleep(2000);
+
+        // Set<String> Handles=driver.getWindowHandles();
+        for (String Handle : Handles) {
+            String Handle1 = "Update Manufacturer";
+            if (!Handle.equals(Handle1)) {
+                driver.switchTo().window(Handle);
+                System.out.println(Handle);
+                driver.findElement(By.xpath("(//button[@type='button'])[7]")).click(); // Archieve Confirmation
+                Thread.sleep(2000);
+
+
+            }
+        }
+    }
+
 
         @Test(groups = {"Search_manufacture_byName"}, priority = 16)
         void Search_manufacture_byName () throws InterruptedException {
@@ -110,78 +178,12 @@ public class manufacturer extends base {
         }
 
 
-        @Test(groups = {"Click_Active_Inactive_Tab"}, priority = 15)
-        void Click_Active_Inactive_Tab () throws InterruptedException {
 
-            driver.findElement(By.xpath("(//div[@class='ant-tabs-tab'])[1]")).click();  // Click on inactive tab
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("(//td[@class='ant-table-cell'])[3]")).click();  // Click on three dot button
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click();  // Perform active from inactive
-            Thread.sleep(2000);
-
-            Set<String> Handles = driver.getWindowHandles();
-            for (String Handle : Handles) {
-                String Handle1 = "Are you sure, want to change status?";
-                if (!Handle.equals(Handle1)) {
-                    driver.switchTo().window(Handle);
-                    System.out.println(Handle);
-                    driver.findElement(By.xpath("(//button[@type='button'])[7]")).click(); // Click on Yes button
-                    Thread.sleep(2000);
-                }
-            }
-
-
-            // Switch to Active tab
-
-            driver.findElement(By.xpath("(//div[@class='ant-tabs-tab'])[1]")).click();  // Perform inactive from active
-            Thread.sleep(2000);
-
-            driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click();  // Click on three dot button
-            Thread.sleep(2000);
-
-            driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click();  // Perform active from inactive
-            Thread.sleep(2000);
-
-            // Set<String> Handles=driver.getWindowHandles();
-            for (String Handle : Handles) {
-                String Handle1 = "Archieve";
-                if (!Handle.equals(Handle1)) {
-                    driver.switchTo().window(Handle);
-                    System.out.println(Handle);
-                    driver.findElement(By.xpath("(//input[@id='name'])[2]")).sendKeys("1"); // change name
-                    Thread.sleep(2000);
-                    driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click(); // Click on  Submit button
-                    Thread.sleep(2000);
-                }
-            }
-
-
-            // Perform archive action
-
-            driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click();  // Click on three dot button
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[2]")).click();  // Perform active from inactive
-            Thread.sleep(2000);
-
-            // Set<String> Handles=driver.getWindowHandles();
-            for (String Handle : Handles) {
-                String Handle1 = "Update Manufacturer";
-                if (!Handle.equals(Handle1)) {
-                    driver.switchTo().window(Handle);
-                    System.out.println(Handle);
-                    driver.findElement(By.xpath("(//button[@type='button'])[7]")).click(); // Archieve Confirmation
-                    Thread.sleep(2000);
-
-                }
-
-
-            }
 
 
         }
 
 
-    }
+
 
 
