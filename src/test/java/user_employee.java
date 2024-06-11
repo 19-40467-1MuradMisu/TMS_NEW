@@ -15,6 +15,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.Set;
+import java.util.UUID;
 
 
 public class user_employee extends base {
@@ -161,10 +162,11 @@ public void loginIfNeeded() throws InterruptedException {
 
 
         // Provide mendatory option for employee
-        driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("Habibur"); // Employee name
+        String uuid = UUID.randomUUID().toString(); // Genearte Random text
+        driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys(uuid); // Employee name auto genearte
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//input[@id='employeeId'])[1]")).sendKeys("Habib-US-99"); // Employee ID
+        driver.findElement(By.xpath("(//input[@id='employeeId'])[1]")).sendKeys(uuid); // Employee ID auto generate
         Thread.sleep(2000);
 
         driver.findElement(By.xpath("(//input[@id='designationId'])[1]")).click(); // Designation field click
@@ -175,16 +177,16 @@ public void loginIfNeeded() throws InterruptedException {
         WebElement designation = driver.findElement(By.xpath("(//div[@class='ant-select-item-option-content'][normalize-space()='QA'])[1]"));
         designation.click(); // click on the designation
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@id='phoneNumber'])[1]")).sendKeys("017987937436"); //Provide phone number
+        driver.findElement(By.xpath("(//input[@id='phoneNumber'])[1]")).sendKeys("10938348747566"); //Provide phone number
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//div[@class='ant-form-item-control-input-content'])[5]")).click(); //Date picker
         Thread.sleep(2000);
         WebElement joindate = driver.findElement(By.xpath("(//a[normalize-space()='Today'])[1]"));
         joindate.click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@id='userDto_email'])[1]")).sendKeys("Habibur@gmail.com"); // provide email
+        driver.findElement(By.xpath("(//input[@id='userDto_email'])[1]")).sendKeys("Habibu123123389@gmail.com"); // provide email
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@id='userDto_username'])[1]")).sendKeys("Habib-US-99"); // Login ID
+        driver.findElement(By.xpath("(//input[@id='userDto_username'])[1]")).sendKeys(uuid); // Login ID
         Thread.sleep(2000);
 
         driver.findElement(By.xpath("(//input[@id='userDto_password'])[1]")).sendKeys("123456"); //  password
@@ -207,7 +209,7 @@ public void loginIfNeeded() throws InterruptedException {
 //    driver.findElement(By.cssSelector("li[title='2']")).click(); // Go to 2nd page
         driver.findElement(By.xpath("(//div[@class='ant-dropdown-trigger cursor-pointer'])[1]")).click(); // Click on three dot button
         Thread.sleep(2000);
-        driver.findElement(By.cssSelector("a[href='/transport/employee/update/23']")).click(); // Click on edit buttons
+        driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click(); // Click on edit buttons
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]")).click(); // Click on the selection bar
         Thread.sleep(2000);
