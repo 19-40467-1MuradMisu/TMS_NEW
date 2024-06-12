@@ -47,11 +47,7 @@ public class vehicle extends manufacturer {
     void create_new_vehicle() throws InterruptedException {
 
 
-        driver.findElement(By.xpath("(//div[@role='menuitem'])[2]")).click(); // click on configuration menu
-        Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//span[normalize-space()='Vehicles'])[1]")).click(); // click on vehicle menu
-        Thread.sleep(2000);
 
 
 
