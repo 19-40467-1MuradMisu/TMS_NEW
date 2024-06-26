@@ -18,8 +18,6 @@ import java.util.Set;
 import java.util.UUID;
 
 
-
-
 public class workshop extends vehicle {
     // WebDriver driver;
     login loginInstance;
@@ -168,67 +166,65 @@ public class workshop extends vehicle {
     }
 
 
-       /*
-        driver.findElement(By.xpath("(//span[@class='ant-select-selection-search'])[1]")).click(); // click on manufacturer option
-        Thread.sleep(2000);
-        WebElement  manufacturer= driver.findElement(By.xpath("(//div[@title='Honda'])[1]"));
-        manufacturer.click(); // Select the desired element from dropdown menu
-        Thread.sleep(2000);
-        String uuid = UUID.randomUUID().toString();   // Generate random value
+    @Test(groups = {"WorkShop_Search"}, priority = 22)
+    void WorkShop_Search() throws InterruptedException {
 
-        driver.findElement(By.xpath("(//input[@id='brtaInfo_licenseNo'])[1]")).sendKeys(uuid); // click on manufacturer option
+        driver.findElement(By.xpath("(//div[@role='menuitem'])[2]")).click(); // click on configuration menu
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//input[@id='basicInfo_model'])[1]")).sendKeys(uuid); // provide year for model
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@id='basicInfo_yearModel'])[1]")).sendKeys("2016"); // provide year for model
+        driver.findElement(By.xpath("(//div[@class='ant-menu-item-icon'])[5]")).click(); // click on Workshop
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//span[@class='ant-select-selection-search'])[2]")).click(); // click on Vehicle_Type option
-        Thread.sleep(2000);
-        WebElement  Vehicle_Type = driver.findElement(By.xpath("(//div[@title='PREMIO '])[1]"));
-        Vehicle_Type.click(); // Select the desired element from dropdown menu
+        driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("Basundhara"); // input to Search by name field
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//input[@id='basicInfo_age'])[1]")).sendKeys("5"); // provide age
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@id='basicInfo_engineNo'])[1]")).sendKeys(uuid); // provide  Engine Number
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@id='basicInfo_chassisNo'])[1]")).sendKeys(uuid); // provide  Chassis Number
+        driver.findElement(By.xpath("(//input[@id='location'])[1]")).sendKeys("Basundhara"); // Input to location field
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//input[@id='basicInfo_passengerCapacity'])[1]")).sendKeys("5"); // provide passenger capacity
+        driver.findElement(By.xpath("(//input[@id='workshopType'])[1]")).click(); // Click on the workshop type field
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//div[contains(text(),'OUT STATION')])[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//span[normalize-space()='Filter'])[1]")).click();
+
+
+    }
+
+    @Test(groups = {"WorkShop_Edit"}, priority = 23)
+    void WorkShop_Edit() throws InterruptedException {
+
+        driver.findElement(By.xpath("(//div[@role='menuitem'])[2]")).click(); // click on configuration menu
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//input[@id='basicInfo_loadCapacity'])[1]")).sendKeys("5000"); // provide loadcapacity
+        driver.findElement(By.xpath("(//div[@class='ant-menu-item-icon'])[5]")).click(); // click on Workshop
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("(//input[@id='basicInfo_fuelTypeId'])[1]")).click(); //  click on fuel type
+        driver.findElement(By.xpath("(//*[name()='svg'])[27]")).click(); // Click on the three dot menu
         Thread.sleep(2000);
-
-        WebElement fuel_type = driver.findElement(By.xpath("(//div[contains(text(),'Petrol')])[1]"));
-        fuel_type.click(); // select fuel type
-        Thread.sleep(2000);
-
-        driver.findElement(By.xpath("(//input[@id='basicInfo_statusId'])[1]")).click(); //  click on Status
-        Thread.sleep(2000);
-
-        WebElement status = driver.findElement(By.xpath("(//div[contains(text(),'IN SERVICE')])[1]"));
-        status.click(); // select  status
-        Thread.sleep(2000);
-
-        driver.findElement(By.xpath("(//input[@id='basicInfo_inclusionDate'])[1]")).click(); //  click on fleet Inclusion date
-        Thread.sleep(2000);
-
-        WebElement Fleet_Inclusion_Date = driver.findElement(By.xpath("(//a[normalize-space()='Today'])[1]"));
-        Fleet_Inclusion_Date.click(); // select  status
-        Thread.sleep(2000);
-
-        driver.findElement(By.xpath("(//button[@class='ant-btn css-42nv3w ant-btn-primary'])[1]")).click(); //  click on next button
+        driver.findElement(By.xpath("(//span[@class='ant-dropdown-menu-title-content'])[1]")).click(); // click on edit button
         Thread.sleep(2000);
 
 
-*/
+        WebElement inputField = driver.findElement(By.xpath("(//input[@id='name'])[1]")); //click on name field
+        inputField.clear();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("Boshundora Residential Area");
+        Thread.sleep(2000);
+
+        //WebElement inputField = driver.findElement(By.xpath("(//div[@class='ant-form-item-control-input-content'])[2]"))
+
+
+
+
+
+
+
+
+
+    }
+
+
+
 
 
 
