@@ -48,6 +48,10 @@ public class vehicle extends manufacturer {
 
 
 
+
+
+
+
         driver.findElement(By.xpath("(//button[@class='ant-btn css-42nv3w ant-btn-default bg-blue-700 text-white'])[1]")).click(); //  Click on Add new button
         Thread.sleep(2000);
 
@@ -108,6 +112,68 @@ public class vehicle extends manufacturer {
 
         driver.findElement(By.xpath("(//button[@class='ant-btn css-42nv3w ant-btn-primary'])[1]")).click(); //  click on next button
         Thread.sleep(2000);
+
+
+
+        // BRTA Information
+
+        driver.findElement(By.xpath("(//input[@id='brtaInfo_licenseExpiry'])[1]")).click(); //  click on Expiry date
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//button[@type='button'][normalize-space()='2024'])[2]")).click(); //  click on year to select
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[normalize-space()='2025'])[1]")).click(); //  Select desired year
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[normalize-space()='Jun'])[1]")).click(); //  Select desired month
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[@class='ant-picker-cell-inner'][normalize-space()='12'])[2]")).click(); //  Select desired date
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//input[@id='brtaInfo_fitnessNo'])[1]")).sendKeys("Very Good"); //   Provide fitness
+        Thread.sleep(2000);
+
+
+
+        driver.findElement(By.xpath("(//input[@id='brtaInfo_fitnessExpiry'])[1]")).click(); //  click on year to select
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//button[@type='button'][normalize-space()='2024'])[2]")).click(); //  click on year to select
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[normalize-space()='2025'])[1]")).click(); //  Select desired year
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[normalize-space()='Jun'])[1]")).click(); //  Select desired month
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[contains(text(),'12')])[4]")).click(); //  Select desired date
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//input[@id='brtaInfo_routePermit'])[1]")).sendKeys("MNJG7398"); //   provide route permit
+        Thread.sleep(2000);
+
+
+
+        driver.findElement(By.xpath("(//input[@id='brtaInfo_routePermitExpiry'])[1]")).click(); //  Select desired date
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//button[@type='button'][normalize-space()='2024'])[3]")).click(); //  click on year to select
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[normalize-space()='2025'])[1]")).click(); //  Select desired year
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//div[normalize-space()='Jun'])[1]")).click(); //  Select desired month
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//div[contains(text(),'12')])[5]")).click(); //  Select desired date
+        Thread.sleep(2000);
+
+
+
+
+
 
 
 
