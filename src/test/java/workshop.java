@@ -206,12 +206,16 @@ public class workshop extends vehicle {
 
 
         WebElement inputField = driver.findElement(By.xpath("(//input[@id='name'])[1]")); //click on name field
-        inputField.clear();
+        inputField.clear(); //clear the previous inputted text
         Thread.sleep(1000);
-        driver.findElement(By.xpath("(//input[@id='name'])[1]")).sendKeys("Boshundora Residential Area");
+        driver.findElement(By.cssSelector("#name")).sendKeys("Boshundora residential area"); // give the new text
         Thread.sleep(2000);
 
-        //WebElement inputField = driver.findElement(By.xpath("(//div[@class='ant-form-item-control-input-content'])[2]"))
+        WebElement inputField2 = driver.findElement(By.xpath("(//input[@id='location'])[1]")); // click on location field
+        inputField2.clear();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("(//input[@id='location'])[1]")).sendKeys("Boshundora, Dhaka");
+        Thread.sleep(1000);
 
 
 
