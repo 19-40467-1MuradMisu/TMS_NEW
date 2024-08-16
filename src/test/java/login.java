@@ -29,9 +29,9 @@ public class login extends base {
     public void login() throws InterruptedException {
         // Your login logic here
         // For example, setting isLoggedIn to true
-        driver.findElement(By.xpath("/html/body/div/div/div/form/div[2]/div/div/div/div/input")).sendKeys("tn-99371");
+        driver.findElement(By.xpath("/html/body/div/div/div/form/div[2]/div/div/div/div/input")).sendKeys("");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div/div/div/form/div[4]/div/div/div/div/span/input")).sendKeys("123456");
+        driver.findElement(By.xpath("/html/body/div/div/div/form/div[4]/div/div/div/div/span/input")).sendKeys("");
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div/div/div/form/div[6]/div/div/div/div/button/span")).click();
         Thread.sleep(1000);
