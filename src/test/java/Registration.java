@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ public class Registration extends base {
         Thread.sleep(2000);
 
         try {
-            WebElement consentButton = driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div[2]/div[2]/button[1]"));
+            WebElement consentButton = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div[2]/div[2]/button[1]"));
             consentButton.click();
             System.out.println("Consent pop-up handled successfully.");
         } catch (Exception e) {
@@ -26,7 +27,7 @@ public class Registration extends base {
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//input[@placeholder='Name'])[1]")).sendKeys("misu");
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@data-qa='signup-email'])[1]")).sendKeys("misu_test19@gmail.com");
+        driver.findElement(By.xpath("(//input[@data-qa='signup-email'])[1]")).sendKeys("misu_test25@gmail.com");
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[normalize-space()='Signup'])[1]")).click();
         Thread.sleep(2000);

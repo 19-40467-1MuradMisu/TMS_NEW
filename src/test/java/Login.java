@@ -16,7 +16,7 @@ public class Login {
 
         driver.findElement(By.xpath("(//a[normalize-space()='Signup / Login'])[1]")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@data-qa='login-email'])[1]")).sendKeys("misu_test15@gmail.com");
+        driver.findElement(By.xpath("(//input[@data-qa='login-email'])[1]")).sendKeys("misu_test25@gmail.com");
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//input[@data-qa='login-password'])[1]")).sendKeys("abc123");
         Thread.sleep(2000);
