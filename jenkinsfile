@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'Maven 3'  // Make sure Maven is installed in Jenkins
-        jdk 'JDK 11'     // Ensure Java is installed
+        jdk 'JDK 21'     // Ensure Java is installed
     }
     stages {
         stage('Checkout') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Publish Reports') {
             steps {
-                publishTestNGReport testResultsPattern: '**/target/surefire-reports/testng-results.xml'
+                 allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
             }
         }
     }

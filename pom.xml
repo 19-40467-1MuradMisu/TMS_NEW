@@ -12,7 +12,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.8.3</version>
+            <version>4.29.0</version>
         </dependency>
 
         <!-- TestNG -->
@@ -22,6 +22,14 @@
             <version>7.7.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.29.0</version>
+        </dependency>
+
 
         <!-- WebDriverManager (Automatically Manages Browser Drivers) -->
         <dependency>
@@ -35,6 +43,12 @@
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.24.0</version>
         </dependency>
     </dependencies>
 
@@ -62,6 +76,21 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+
+
+
+        <plugin>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.29.1</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
     </build>
 </project>

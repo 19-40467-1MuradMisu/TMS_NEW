@@ -27,7 +27,7 @@ public class Registration extends base {
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//input[@placeholder='Name'])[1]")).sendKeys("misu");
         Thread.sleep(2000);
-        driver.findElement(By.xpath("(//input[@data-qa='signup-email'])[1]")).sendKeys("misu_test25@gmail.com");
+        driver.findElement(By.xpath("(//input[@data-qa='signup-email'])[1]")).sendKeys("misu_test251@gmail.com");
         Thread.sleep(2000);
         driver.findElement(By.xpath("(//button[normalize-space()='Signup'])[1]")).click();
         Thread.sleep(2000);
