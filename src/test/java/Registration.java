@@ -10,7 +10,7 @@ public class Registration extends base {
     public void view_web_page_of_Automation_Exercise() throws InterruptedException {
         driver.get("https://automationexercise.com/");
         Thread.sleep(2000);
-
+//  changes
         try {
             WebElement consentButton = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div[2]/div[2]/button[1]"));
             consentButton.click();
