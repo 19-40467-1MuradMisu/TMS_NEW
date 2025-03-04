@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo.git'
+                git 'https://github.com/19-40467-1MuradMisu/SQT_TALTECH.git'
             }
         }
         stage('Build') {
