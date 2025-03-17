@@ -10,11 +10,14 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/19-40467-1MuradMisu/TMS_NEW.git'
-            }
-        }
+        stages {
+                stage('Checkout') {
+                    steps {
+                        checkout([$class: 'GitSCM',
+                                  branches: [[name: 'main']], // Replace 'main' with your branch name
+                                  userRemoteConfigs: [[url: 'https://github.com/19-40467-1MuradMisu/TMS_NEW.git']]])
+                    }
+                }
 
         stage('Build') {
             steps {
