@@ -1,29 +1,62 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'  // Make sure Maven is installed in Jenkins
-        jdk 'jdk'     // Ensure Java is installed
+        maven 'Maven'  // Ensure Maven is installed in Jenkins
+        jdk 'jdk'      // Ensure Java is installed
     }
+
+    environment {
+        ALLURE_RESULTS = '/allure-results'  // Define Allure results directory
+    }
+
     stages {
         stage('Checkout') {
             steps {
                 git 'https://github.com/19-40467-1MuradMisu/TMS_NEW.git'
             }
         }
+
         stage('Build') {
             steps {
-                bat 'mvn clean install'
+                script {
+                    bat 'mvn clean install'
+                }
             }
         }
+
         stage('Run Tests') {
             steps {
-                bat 'mvn test'
+                script {
+                    try {
+                        bat 'mvn test'
+                    } catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+                        throw e
+                    }
+                }
             }
         }
+
         stage('Publish Reports') {
             steps {
-                 allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                script {
+                    allure includeProperties: false, jdk: '', results: [[path: "${ALLURE_RESULTS}"]]
+                }
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+        }
+
+        success {
+            echo '✅ Tests executed successfully!'
+        }
+
+        failure {
+            echo '❌ Tests failed! Check reports for details.'
         }
     }
 }
