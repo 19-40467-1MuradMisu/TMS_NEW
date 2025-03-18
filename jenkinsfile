@@ -14,7 +14,7 @@ pipeline {
                 stage('Checkout') {
                     steps {
                         checkout([$class: 'GitSCM',
-                                  branches: [[name: 'main']], // Replace 'main' with your branch name
+                                  branches: [[name: 'master']], // Replace 'main' with your branch name
                                   userRemoteConfigs: [[url: 'https://github.com/19-40467-1MuradMisu/TMS_NEW.git']]])
                     }
                 }
